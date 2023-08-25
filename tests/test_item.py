@@ -54,3 +54,17 @@ def test_string_to_number():
     assert Item.string_to_number('5.5') == 5
     assert Item.string_to_number('5.0') == 5
     assert Item.string_to_number('5') == 5
+
+def test_repr():
+    """
+    Проверяет магический метод repr по заданным параметрам
+    """
+    item = Item("Холодильник", 25000, 10)
+    assert repr(item) == "Item('Холодильник', 25000, 10)"
+
+def test_str():
+    """
+    Проверяет магический метод str по заданным параметрам
+    """
+    item = Item("Холодильник", 25000, 10)
+    assert str(item) == 'Холодильник'

@@ -23,6 +23,13 @@ class Item:
         # Возвращает сущности объектов класса в виде списка
         self.all = Item.all.append(self)
 
+    def __repr__(self):
+        return f"{self.__class__.__name__}('{self.__name}', {self.price}, {self.quantity})"
+
+    def __str__(self):
+        return f"{self.__name}"
+
+
     @classmethod
     def instantiate_from_csv(cls):
         """
