@@ -1,9 +1,11 @@
 import pytest
 
+
 """ 
 Импорт класса
 """
 from src.item import Item
+from src.phone import Phone
 import csv
 
 
@@ -68,3 +70,8 @@ def test_str():
     """
     item = Item("Холодильник", 25000, 10)
     assert str(item) == 'Холодильник'
+
+def test__add__():
+    phone1 = Phone("Телефон", 32, 1, 2)
+    item1 = Item("Смартфон", 34, 2)
+    assert phone1 + item1 == 3
