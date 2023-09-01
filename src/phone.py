@@ -13,7 +13,10 @@ class Phone(Item):
 
     @number_of_sim.setter
     def number_of_sim(self, value):
-        if value <= 0:
+        """
+        Сравнивает значение кол-ва симкарт с положительным, целым числом
+        """
+        if value <= 0 or type(value) == float:
             raise ValueError('Количество физических SIM-карт должно быть целым числом больше нуля.')
         else:
             return self._number_of_sim
