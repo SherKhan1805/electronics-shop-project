@@ -75,3 +75,9 @@ def test__add__():
     phone1 = Phone("Телефон", 32, 1, 2)
     item1 = Item("Смартфон", 34, 2)
     assert phone1 + item1 == 3
+
+
+def test_instantiate_from_csv():
+
+    assert Item.instantiate_from_csv()
+

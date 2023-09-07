@@ -36,12 +36,21 @@ class Item:
         Функция распаковывает csv файл в виде словаря.
         Создает экземпляры класса.
         """
-        with open("C:/Users/irpro/PycharmProjects/electronics-shop-project/src/items.csv", newline="", encoding='utf-8') as csvfile:
-            reader = csv.DictReader(csvfile)
-            for item in reader:
-                name, price, quantity = item['name'], item['price'], item['quantity']
-                newItem = cls(name, price, quantity)
-            return newItem
+
+        try:
+            with open("C:/Users/irpro/PycharmProjects/electronics-shop-project/src/items.csv", newline="", encoding='utf-8') as csvfile:
+                reader = csv.DictReader(csvfile)
+                for item in reader:
+                    name, price, quantity = item['name'], item['price'], item['quantity']
+                    newItem = cls(name, price, quantity)
+                return newItem
+
+        except FileNotFoundError:
+            print("Файл items.csv отсутствует.")
+
+        except KeyError as ke:
+            print("InstantiateCSVError: Файл item.csv поврежден. Отсутствует ключ:", ke)
+
 
     @property
     def name(self):
